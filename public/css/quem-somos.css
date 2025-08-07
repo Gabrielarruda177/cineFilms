@@ -1,0 +1,105 @@
+.carrossel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #ffffff;
+    animation: fade-in 1s ease-in forwards;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.carrossel-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carrossel-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.fundo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carrossel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* mantém proporção, sem distorcer */
+    display: block;
+    border-radius: 6px;
+}
+
+/* Camada preta por cima */
+.fundo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.623); /* opacidade da camada preta */
+    z-index: 1;
+}
+
+/* Conteúdo opcional por cima da imagem */
+.fundo-conteudo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* --- QUEM SOMOS --- */
+.quem-somos {
+    background-color: #f0f0f0;
+    color: #000;
+    max-width: 900px;
+    margin: 100px auto 50px auto;
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(19, 46, 105, 0.767);
+    text-align: center;
+
+    animation: fade-in 1s ease-in forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.quem-somos.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.quem-somos h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #002366;
+}
+
+.quem-somos p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Ícone ou imagem opcional acima do título */
+.quem-somos .icone {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
