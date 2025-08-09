@@ -54,7 +54,6 @@
 
         <script src="{{ asset('js/fadein.js') }}"></script>
 
-
         <script>
             document.addEventListener("DOMContentLoaded", function () {
             const faders = document.querySelectorAll('.quem-somos');

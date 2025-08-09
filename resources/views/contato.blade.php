@@ -9,9 +9,7 @@
 @section('content')
     <h1>Contato</h1>
 
-    @if(session('success'))
-        <p class="mensagem-sucesso">{{ session('success') }}</p>
-    @endif
+    
 
     <form action="/contato" method="POST">
         @csrf
@@ -19,5 +17,8 @@
         <input type="email" name="email" placeholder="Seu email" required><br>
         <textarea name="mensagem" placeholder="Sua mensagem" required></textarea><br>
         <button type="submit">Enviar</button>
+        @if(session('success'))
+         <p class="mensagem-sucesso">{{ session('success') }}</p>
+        @endif
     </form>
 @endsection

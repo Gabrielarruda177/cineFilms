@@ -17,7 +17,6 @@
 
 <!-- Quem Somos -->
 <section class="quem-somos">
-  <div class="icone">🍿</div>
   <h2>Bem-vindo à CineFilms!</h2>
   <p>
     Somos uma plataforma dedicada à paixão pelo cinema! Nossa missão é tornar sua experiência única, confortável e envolvente, desde a escolha do filme até o último segundo da sessão.
@@ -50,12 +49,12 @@
       <p>Full Stack </p>
     </div>
     <div class="card">
-      <img src="{{ asset('img/esse.jpg') }}" alt="João Silva">
+      <img src="{{ asset('img/kaua.png') }}" alt="João Silva">
       <h3>Kauã Amorim</h3>
       <p>Front-End</p>
     </div>
     <div class="card">
-      <img src="{{ asset('img/esse.jpg') }}" alt="Maria Oliveira">
+      <img src="{{ asset('img/lukas.png') }}" alt="Maria Oliveira">
       <h3>Lucas</h3>
       <p>Back-End</p>
     </div>

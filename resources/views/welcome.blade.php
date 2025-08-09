@@ -4,7 +4,7 @@
 
 @section('content')
 
-<!-- Carrossel -->
+<!-- Banner -->
 <section class="carrossel-container">
     <div class="carrossel-slide">
         <div class="fundo">
@@ -16,40 +16,77 @@
     </div>
 </section>
 
+<h1>Filmes em Cartaz</h1>
+
+<section class="carousel3d-container">
+    <button class="carousel-btn prev-btn">&#10094;</button>
+
+  <div class="carousel3d">
+    <div class="carousel3d-card">
+      <h2>Drákula</h2>
+       <a href="{{ url('filmes') }}"><img src="{{ asset('img/drakula.webp') }}" class="carrossel3d-img"></a>
+    </div>
+
+    <div class="carousel3d-card">
+      <h2>F1 O Filme</h2>
+       <a href="{{ url('filmes') }}"><img src="{{ asset('img/f1.jpg') }}" class="carrossel3d-img"></a>
+    </div>
+
+    <div class="carousel3d-card">
+      <h2>A Hora do Mal</h2>
+       <a href="{{ url('filmes') }}"><img src="{{ asset('img/hora_do_mal.jpg') }}" class="carrossel3d-img"></a>
+    </div>
+
+    <div class="carousel3d-card">
+      <h2>Quarteto Fantático</h2>
+       <a href="{{ url('filmes') }}"><img src="{{ asset('img/quarteto.webp') }}" class="carrossel3d-img"></a>
+    </div>
+
+    <div class="carousel3d-card">
+      <h2>Superman</h2>
+       <a href="{{ url('filmes') }}"><img src="{{ asset('img/superman.webp') }}" class="carrossel3d-img"></a>
+    </div>
+  </div>
+
+  <button class="carousel-btn next-btn">&#10095;</button>
+</section>
+
+
+
+
+
+
 <!-- Produtos em Destaque -->
 <section class="produtos">
     <h2>Próximos lançamentos</h2>
     <div class="grid-produtos">
         <div class="card">
-            <img src="{{ asset('img/AvengersInfinita.jpg') }}" alt="Vingadores Guerra Infinita">
+            <img src="{{ asset('img/Invocacao.jpg') }}" alt="Vingadores Guerra Infinita">
             <div class="filme-desc">
-                <h3>Vingadores Guerra Infinita</h3>
+                <h3>Invocação do Mal 4: O Último Ritual</h3>
                 <p><b>12 • 2h 29m</b></p>
-                <p><b>Elenco</b>: Robert Downey Jr (Homem de Ferro)...</p>
-                <p><b>Gênero</b>: Ação/Ficção Científica</p>
-                <button>Comprar Ingresso</button>
+                <p><b>Elenco</b>: Vera Farmiga, Patrick Wilson, Mia Tomlinson</p>
+                <p><b>Gênero</b>: Terror</p>
             </div>
         </div>
 
         <div class="card">
-            <img src="{{ asset('img/avatar.jpg') }}" alt="Avatar 2">
+            <img src="{{ asset('img/Rei_Feira.jpg') }}" alt="Avatar 2">
             <div class="filme-desc">
-                <h3>Avatar 2 Caminho da Água</h3>
-                <p><b>14 • 3h 12m</b></p>
-                <p><b>Elenco</b>: Sam Worthington (Jake Sully)...</p>
-                <p><b>Gênero</b>: Ação/Ficção Científica</p>
-                <button>Comprar Ingresso</button>
+                <h3>O Rei da Feira</h3>
+                <p><b>14 • 1 hr 27 min</b></p>
+                <p><b>Elenco</b>: Leandro Hassum, Pedro Wagner, Luana Martau</p>
+                <p><b>Gênero</b>: Comédia</p>
             </div>
         </div>
 
         <div class="card">
-            <img src="{{ asset('img/como_treinar_seu_dragao.webp') }}" alt="Como Treinar o Seu Dragão">
+            <img src="{{ asset('img/Caras_Malvados.webp') }}" alt="Como Treinar o Seu Dragão">
             <div class="filme-desc">
-                <h3>Como Treinar o Seu Dragão</h3>
-                <p><b>10 • 2h 5m</b></p>
-                <p><b>Elenco</b>: Mason Thames (Soluço)...</p>
-                <p><b>Gênero</b>: Fantasia/Aventura</p>
-                <button>Comprar Ingresso</button>
+                <h3>Os Caras Malvados 2</h3>
+                <p><b>1 hr 44 min</b></p>
+                <p><b>Elenco</b>: Sam Rockwell, Craig Robinson, Anthony Ramos</p>
+                <p><b>Gênero</b>: Animação, Filme para família, Comédi</p>
             </div>
         </div>
     </div>
@@ -67,6 +104,43 @@
 @endsection
 
 @section('scripts')
+
+<script>
+const carousel = document.querySelector('.carousel3d');
+const cards = document.querySelectorAll('.carousel3d-card');
+const total = cards.length;
+const angleStep = 360 / total; 
+const distance = 350; 
+
+let currentAngle = 0;
+let currentIndex = 0;
+
+// Posiciona cada cartão
+cards.forEach((card, i) => {
+    card.style.transform = `rotateY(${i * angleStep}deg) translateZ(${distance}px)`;
+});
+
+// Função para centralizar card
+function updateCarousel() {
+    currentAngle = -currentIndex * angleStep;
+    carousel.style.transform = `rotateY(${currentAngle}deg)`;
+}
+
+// Botões
+document.querySelector('.next-btn').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % total;
+    updateCarousel();
+});
+
+document.querySelector('.prev-btn').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + total) % total;
+    updateCarousel();
+});
+
+</script>
+
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const carrosselSlide = document.querySelector('.carrossel-slide');
